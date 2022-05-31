@@ -10,12 +10,12 @@ import { Routes, Route } from "react-router-dom";
 const Routers: React.FC = () => {
     return (
         <Routes>
-            <Route path="/" element={<SignIn />}/>
+            <Route path="/signIn" element={<SignIn />}/>
             <Route element={<Layout />}>
                 <Route 
-                    path="/dashbord" 
+                    path="/" 
                     element={
-                        <Redirect to="/">
+                        <Redirect to="/signIn">
                             <Dashbord />
                         </Redirect>
                     }
@@ -23,7 +23,7 @@ const Routers: React.FC = () => {
                 <Route 
                     path="/account" 
                     element={
-                        <Redirect to="/">
+                        <Redirect to="/signIn">
                             <Account />
                         </Redirect>
                     }
