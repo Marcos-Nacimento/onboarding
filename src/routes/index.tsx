@@ -3,7 +3,7 @@ import Layout from "../layout";
 import Dashbord from "../pages/dashbord";
 import Account from "../pages/account";
 import SignIn from "../pages/signIn";
-import PrivateRoute from "./private";
+import Redirect from "./redirect";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -15,17 +15,17 @@ const Routers: React.FC = () => {
                 <Route 
                     path="/dashbord" 
                     element={
-                        <PrivateRoute>
+                        <Redirect to="/">
                             <Dashbord />
-                        </PrivateRoute>
+                        </Redirect>
                     }
                 />
                 <Route 
                     path="/account" 
                     element={
-                        <PrivateRoute>
+                        <Redirect to="/">
                             <Account />
-                        </PrivateRoute>
+                        </Redirect>
                     }
                 />
             </Route>
