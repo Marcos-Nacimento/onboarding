@@ -1,10 +1,12 @@
 import React, {
     useState,
 } from "react";
-
+import useAuth
+ from "../hooks/useAuth";
 const Account: React.FC = () => {
-    let [name, setName] = useState<string>('Marcos');
-    let [phone, setPhone] = useState<string>("");
+    let { data } = useAuth();
+    let [name, setName] = useState<string>(data.name);
+    let [phone, setPhone] = useState<string>(!data.phone ? "" : data.phone);
 
     return (
         <div className="flex flex-col space-y-10 p-8 select-none">
@@ -18,7 +20,7 @@ const Account: React.FC = () => {
                         type="text"
                         readOnly
                         className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
-                        value="Markinhos"
+                        value={data.name}
                     />
                 </div>
                 <div className="flex justify-between px-4 py-2">
@@ -27,7 +29,7 @@ const Account: React.FC = () => {
                         type="text"
                         readOnly
                         className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
-                        value="marcosftp1@gmail.com"
+                        value={data.email}
                     />
                 </div>
             </div>
@@ -50,7 +52,9 @@ const Account: React.FC = () => {
                     <input
                         type="text"
                         className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
-                        value="(44)-998419-7458"
+                        onChange={text => setPhone(text.target.value)}
+                        placeholder="telefone"
+                        value={phone}
                     />
                 </div>
                 <div className="flex justify-between px-4 py-2">
@@ -58,16 +62,24 @@ const Account: React.FC = () => {
                     <input
                         type="text"
                         className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
-                        value="Administrativa"
                         readOnly
+                        value={
+                            data.role === "all"
+                            ?
+                            "administrativa"
+                            :
+                            "colaborador"
+                        }
                     />
                 </div>
                 <div className="flex justify-between px-4 py-2 mb-5">
                     <p className="text-white text-sm">Status</p>
-                    <p className="text-lime-600 text-sm">Ativa</p>
+                    <p className="text-lime-600 text-sm">
+                        {data.status ? "Ativa" : "Desativada"}
+                    </p>
                 </div>
                 <span 
-                    className="ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm p-1"
+                    className="ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm px-10 py-2"
                 >
                     atualizar
                 </span>

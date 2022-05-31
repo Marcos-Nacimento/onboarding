@@ -4,6 +4,7 @@ type UserProps = {
     email: string,
     phone?: string,
     avatar?: string,
+    status: boolean,
     role: string,
     token: string,
     createdAt?: string,

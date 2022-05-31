@@ -34,10 +34,10 @@ const SignIn: React.FC = () => {
         },
         onSubmit: async ({ email, password }) => {
             let result = await user.auth(email, password);
-            
-            if(result.user) {
+            console.log(result);
+            if(result.token) {
                 let credentials = JSON.stringify(result);
-
+                
                 localStorage.setItem("@user_authenticated@", credentials);
                 handlerData(result);
 
