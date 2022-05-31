@@ -3,6 +3,7 @@ import Layout from "../layout";
 import Dashbord from "../pages/dashbord";
 import Account from "../pages/account";
 import SignIn from "../pages/signIn";
+import PrivateRoute from "./private";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -11,8 +12,22 @@ const Routers: React.FC = () => {
         <Routes>
             <Route path="/" element={<SignIn />}/>
             <Route element={<Layout />}>
-                <Route path="/dashbord" element={<Dashbord />}/>
-                <Route path="/account" element={<Account />}/>
+                <Route 
+                    path="/dashbord" 
+                    element={
+                        <PrivateRoute>
+                            <Dashbord />
+                        </PrivateRoute>
+                    }
+                />
+                <Route 
+                    path="/account" 
+                    element={
+                        <PrivateRoute>
+                            <Account />
+                        </PrivateRoute>
+                    }
+                />
             </Route>
         </Routes>
     );
