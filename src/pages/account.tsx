@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, {
+    useState,
+} from "react";
 
 const Account: React.FC = () => {
     let [name, setName] = useState<string>('Marcos');
+    let [phone, setPhone] = useState<string>("");
 
     return (
         <div className="flex flex-col space-y-10 p-8 select-none">
@@ -63,7 +66,9 @@ const Account: React.FC = () => {
                     <p className="text-white text-sm">Status</p>
                     <p className="text-lime-600 text-sm">Ativa</p>
                 </div>
-                <span className="ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm p-1">
+                <span 
+                    className="ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm p-1"
+                >
                     atualizar
                 </span>
             </div>
