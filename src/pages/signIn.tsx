@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 import * as Yup from "yup";
 import UserMethods from "../services/User";
@@ -7,6 +8,8 @@ import useAuth from "../hooks/useAuth";
 
 const SignIn: React.FC = () => {
     let user = new UserMethods();
+    let navigation = useNavigate();
+
     let { handlerData } = useAuth();
 
     const scheme = Yup
@@ -37,7 +40,8 @@ const SignIn: React.FC = () => {
 
                 localStorage.setItem("@user_authenticated@", credentials);
                 handlerData(result);
-                return;
+
+                return navigation("/dashbord", {replace: true});
             }else if(result.status === 400) {
                 formik.errors.password = result.data;
                 return;
