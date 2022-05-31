@@ -1,16 +1,28 @@
 import React, {
     useState,
+    Dispatch,
     createContext
 } from "react";
-export const UserContext = createContext(null);
+import UserProps from "../types/User";
+
+type ContextProps = {
+    data: UserProps,
+    handlerData: Dispatch<UserProps>
+};
+
+export const UserContext = createContext({} as ContextProps);
 
 const UserProvider: React.FC<{children: JSX.Element}> = ({ children }) => {
- 
-    let [user, setUser] = useState(null);
+    let credentials: UserProps = JSON.parse(`${localStorage.getItem("@user_authenticated@")}`);
+
+    let [user, setUser] = useState<UserProps>(credentials);
 
     return (
         <UserContext.Provider
-            value={null}
+            value={{
+                data: user,
+                handlerData: setUser
+            }}
         >
             {children}
         </UserContext.Provider>
