@@ -1,9 +1,8 @@
-import UserProps from "../types/User";
 import api from "./api";
 import axios from "axios";
 
 class User {
-    async update(data: UserProps) {
+    async update(data: any) {
         let { id, ...rest } = data;
 
         if(!id) {
@@ -17,8 +16,8 @@ class User {
             });
 
             return data;
-        }catch(error) {
-            return error;
+        }catch({ response }) {
+            return response;
         };
     };
     async auth(email: string, password: string) {

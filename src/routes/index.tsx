@@ -3,29 +3,29 @@ import Layout from "../layout";
 import Dashbord from "../pages/dashbord";
 import Account from "../pages/account";
 import SignIn from "../pages/signIn";
-import PrivateRoute from "./private";
+import Redirect from "./redirect";
 
 import { Routes, Route } from "react-router-dom";
 
 const Routers: React.FC = () => {
     return (
         <Routes>
-            <Route path="/" element={<SignIn />}/>
+            <Route path="/signIn" element={<SignIn />}/>
             <Route element={<Layout />}>
                 <Route 
-                    path="/dashbord" 
+                    path="/" 
                     element={
-                        <PrivateRoute>
+                        <Redirect to="/signIn">
                             <Dashbord />
-                        </PrivateRoute>
+                        </Redirect>
                     }
                 />
                 <Route 
                     path="/account" 
                     element={
-                        <PrivateRoute>
+                        <Redirect to="/signIn">
                             <Account />
-                        </PrivateRoute>
+                        </Redirect>
                     }
                 />
             </Route>

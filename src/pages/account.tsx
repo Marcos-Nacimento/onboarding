@@ -1,12 +1,35 @@
 import React, {
     useState,
 } from "react";
-import useAuth
- from "../hooks/useAuth";
+import useAuth from "../hooks/useAuth";
+import UserMethods from "../services/User"; 
+
 const Account: React.FC = () => {
-    let { data } = useAuth();
+    let { data, handlerData } = useAuth();
     let [name, setName] = useState<string>(data.name);
     let [phone, setPhone] = useState<string>(!data.phone ? "" : data.phone);
+
+    let user = new UserMethods();
+
+    const update = async () => {
+        let result = await user.update({
+            name,
+            phone,
+            id: data.id
+        });
+
+        let credentials = JSON.stringify({
+            token: data.token,
+            ...result
+        });
+
+        localStorage.setItem("@user_authenticated@", credentials);
+
+        handlerData({
+            token: data.token,
+            ...result
+        });
+    };
 
     return (
         <div className="flex flex-col space-y-10 p-8 select-none">
@@ -72,17 +95,39 @@ const Account: React.FC = () => {
                         }
                     />
                 </div>
-                <div className="flex justify-between px-4 py-2 mb-5">
+                <div className="flex justify-between px-4 py-2 mb-3">
                     <p className="text-white text-sm">Status</p>
                     <p className="text-lime-600 text-sm">
                         {data.status ? "Ativa" : "Desativada"}
                     </p>
                 </div>
-                <span 
-                    className="ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm px-10 py-2"
+                <button 
+                    disabled={
+                        data.name
+                        !== name
+                        ||
+                        data.phone
+                        !== phone
+                        ?
+                        false
+                        :
+                        true
+                    }
+                    onClick={() => update()}
+                    className={
+                        data.name
+                        !== name
+                        ||
+                        data.phone
+                        !== phone
+                        ?
+                        "ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm px-10 py-2"
+                        :
+                        "ml-4 bg-gray-500 cursor-not-allowed text-white text-sm rounded-sm px-10 py-2"
+                    }
                 >
                     atualizar
-                </span>
+                </button>
             </div>
         </div>
     );

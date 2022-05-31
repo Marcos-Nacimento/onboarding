@@ -41,7 +41,7 @@ const SignIn: React.FC = () => {
                 localStorage.setItem("@user_authenticated@", credentials);
                 handlerData(result);
 
-                return navigation("/dashbord", {replace: true});
+                return navigation("/", {replace: true});
             }else if(result.status === 400) {
                 formik.errors.password = result.data;
                 return;
