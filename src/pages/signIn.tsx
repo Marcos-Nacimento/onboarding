@@ -1,8 +1,15 @@
-import React from "react";
+import React, {
+    useContext
+} from "react";
 import { useFormik } from "formik";
+import { UserContext } from "../contexts/user";
+
 import * as Yup from "yup";
+import UserMethods from "../services/User";
 
 const SignIn: React.FC = () => {
+    let user = new UserMethods();
+    let { handlerData } = useContext(UserContext);
 
     const scheme = Yup
     .object()
@@ -25,7 +32,21 @@ const SignIn: React.FC = () => {
             password: "",
         },
         onSubmit: async ({ email, password }) => {
+            let result = await user.auth(email, password);
             
+            if(result.user) {
+                let credentials = JSON.stringify(result);
+
+                localStorage.setItem("@user_authenticated@", credentials);
+                handlerData(result);
+                return;
+            }else if(result.status === 400) {
+                formik.errors.password = result.data;
+                return;
+            }else if(result.status === 500) {
+                formik.errors.password = result.data;
+                return;
+            };
         },
     });
 
