@@ -1,15 +1,13 @@
-import React, {
-    useContext
-} from "react";
+import React from "react";
 import { useFormik } from "formik";
-import { UserContext } from "../contexts/user";
 
 import * as Yup from "yup";
 import UserMethods from "../services/User";
+import useAuth from "../hooks/useAuth";
 
 const SignIn: React.FC = () => {
     let user = new UserMethods();
-    let { handlerData } = useContext(UserContext);
+    let { handlerData } = useAuth();
 
     const scheme = Yup
     .object()
