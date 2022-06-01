@@ -1,11 +1,11 @@
 const navigates = [
     {
         id: 1,
-        navigate: "/dashbord",
+        navigate: "/",
     },
     {
         id: 2,
-        navigate: "/setting",
+        navigate: "/account",
     },
     
 ];
