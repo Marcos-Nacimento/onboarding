@@ -35,19 +35,19 @@ const Account: React.FC = () => {
         <div className="flex flex-col space-y-10 p-8 select-none">
             <div className="h-40 w-auto max-w-[50rem] bg-slate-800 rounded-md">
                 <div className="border border-x-0 border-t-0 border-gray-700">
-                    <p className="text-white text-sm p-2 ml-2 opacity-80">Informação da conta</p>
+                    <p className="text-white text-sm p-2 ml-2 opacity-80 font-poppins">Informação da conta</p>
                 </div>
-                <div className="flex justify-between items-center px-4 py-2 font-body">
-                    <p className="text-white text-sm">UserName</p>
+                <div className="flex justify-between items-center px-4 py-2 font-poppins">
+                    <p className="text-white text-sm font-poppins">UserName</p>
                     <input
                         type="text"
                         readOnly
-                        className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none font-poppins bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                         value={data.name}
                     />
                 </div>
                 <div className="flex justify-between px-4 py-2">
-                    <p className="text-white text-sm">Email</p>
+                    <p className="text-white text-sm font-poppins">Email</p>
                     <input
                         type="text"
                         readOnly
@@ -56,35 +56,35 @@ const Account: React.FC = () => {
                     />
                 </div>
             </div>
-            <div className="h-72 w-auto max-w-[50rem] bg-slate-800 rounded-md font-body">
+            <div className="h-72 w-auto max-w-[50rem] bg-slate-800 rounded-md font-poppins">
                 <div className="border border-x-0 border-t-0 border-gray-700">
-                    <p className="text-white text-sm p-2 ml-2 opacity-80">Perfil</p>
+                    <p className="text-white text-sm p-2 ml-2 opacity-80 font-poppins">Perfil</p>
                 </div>
                 <div className="flex justify-between px-4 py-2">
-                    <p className="text-white text-sm">Nome</p>
+                    <p className="text-white text-sm font-poppins">Nome</p>
                     <input
                         type="text"
-                        className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none font-poppins bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                         onChange={(text) => setName(text.target.value)}
                         maxLength={100}
                         value={name}
                     />
                 </div>
                 <div className="flex justify-between px-4 py-2">
-                    <p className="text-white text-sm">Telefone</p>
+                    <p className="text-white text-sm font-poppins">Telefone</p>
                     <input
                         type="text"
-                        className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none font-poppins bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                         onChange={text => setPhone(text.target.value)}
                         placeholder="telefone"
                         value={phone}
                     />
                 </div>
                 <div className="flex justify-between px-4 py-2">
-                    <p className="text-white text-sm">Tipo da conta</p>
+                    <p className="text-white text-sm font-poppins">Tipo da conta</p>
                     <input
                         type="text"
-                        className="shadow appearance-none bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none font-poppins bg-gray-700 border-gray-700 border rounded w-full max-w-lg py-2 px-3 text-slate-400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                         readOnly
                         value={
                             data.role === "all"
@@ -96,7 +96,7 @@ const Account: React.FC = () => {
                     />
                 </div>
                 <div className="flex justify-between px-4 py-2 mb-3">
-                    <p className="text-white text-sm">Status</p>
+                    <p className="text-white text-sm font-poppins">Status</p>
                     <p className="text-lime-600 text-sm">
                         {data.status ? "Ativa" : "Desativada"}
                     </p>
@@ -121,9 +121,9 @@ const Account: React.FC = () => {
                         data.phone
                         !== phone
                         ?
-                        "ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm px-10 py-2"
+                        "ml-4 bg-green-400 cursor-pointer text-white text-sm rounded-sm px-10 py-2 font-poppins"
                         :
-                        "ml-4 bg-gray-500 cursor-not-allowed text-white text-sm rounded-sm px-10 py-2"
+                        "ml-4 bg-gray-500 cursor-not-allowed text-white text-sm rounded-sm px-10 py-2 font-poppins"
                     }
                 >
                     atualizar

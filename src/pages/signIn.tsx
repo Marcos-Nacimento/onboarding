@@ -55,7 +55,7 @@ const SignIn: React.FC = () => {
     return (
         <div className="flex justify-center items-center h-[100vh] bg-gradient-to-r from-sky-500 to-indigo-500">
             <div className="h-4/5 w-2/5 bg-white rounded-lg shadow-sm shadow-slate-100 p-5">
-                <div className="select-none text-sm text-slate-500 font-body mt-10">
+                <div className="select-none text-sm text-slate-500 font-poppins mt-10">
                     <p>
                         Olá!
                     </p>
@@ -68,9 +68,9 @@ const SignIn: React.FC = () => {
                         className={
                             formik.errors.email
                             ?
-                            "mb-2 text-sm text-red-500 font-body"
+                            "mb-2 text-sm text-red-500 font-poppins"
                             :
-                            "mb-2 text-sm text-slate-600 font-body"
+                            "mb-2 text-sm text-slate-600 font-poppins"
                         }
                     >
                         Email
@@ -82,16 +82,16 @@ const SignIn: React.FC = () => {
                         className={
                             formik.errors.email 
                             ?
-                            "shadow appearance-none border border-red-500 rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                            "shadow font-poppins appearance-none border border-red-500 rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                             :
-                            "shadow appearance-none border rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                            "shadow font-poppins appearance-none border rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                         }
                         placeholder="Email"
                         onChange={formik.handleChange}
                         value={formik.values.email}
                     />
                     {formik.errors.email && (
-                        <p className="text-xs text-red-500 font-body">{formik.errors.email}</p>
+                        <p className="text-xs text-red-500 font-poppins">{formik.errors.email}</p>
                     )}
                 </div>
                 <div className="mt-5 mb-10">
@@ -99,9 +99,9 @@ const SignIn: React.FC = () => {
                         className={
                             formik.errors.email
                             ?
-                            "mb-2 text-sm text-red-500 font-body"
+                            "mb-2 text-sm text-red-500 font-poppins"
                             :
-                            "mb-2 text-sm text-slate-600 font-body"
+                            "mb-2 text-sm text-slate-600 font-poppins"
                         }
                     >
                         Senha
@@ -113,23 +113,23 @@ const SignIn: React.FC = () => {
                         className={
                             formik.errors.password 
                             ?
-                            "shadow appearance-none border border-red-500 rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                            "shadow font-poppins appearance-none border border-red-500 rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                             :
-                            "shadow appearance-none border rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
+                            "shadow font-poppins appearance-none border rounded w-full max-w-lg py-2 px-3 text-slate-600 -400 text-sm leading-tight focus:outline-none focus:shadow-outline"
                         }
                         placeholder="Senha"
                         onChange={formik.handleChange}
                         value={formik.values.password}
                     />
                     {formik.errors.password && (
-                        <p className="text-xs text-red-500 font-body">{formik.errors.password}</p>
+                        <p className="text-xs text-red-500 font-poppins">{formik.errors.password}</p>
                     )}
                 </div>
                 <div
                     onClick={() => formik.handleSubmit()}
                     className="flex justify-center items-center h-10 w-auto max-w-[10rem] bg-green-400 cursor-pointer rounded-md"
                 >
-                    <p className="font-body text-white text-sm">entrar</p>
+                    <p className="font-poppins text-white text-sm">entrar</p>
                 </div>
             </div>
         </div>
