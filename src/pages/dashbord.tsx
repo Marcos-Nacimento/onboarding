@@ -11,7 +11,7 @@ const Dashbord: React.FC = () => {
         <div className="p-5">
             <p className="mb-5 text-md text-gray-300 font-bold font-poppins select-none">Olá, {data.name}</p>
             <div className="grid grid-cols-2">
-                <div className="space-y-5">
+                <div className="space-y-8">
                     <Balance />
                     <PaymentReal />
                 </div>
