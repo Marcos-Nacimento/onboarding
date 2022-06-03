@@ -7,7 +7,7 @@ const SideBarSmall: React.FC = () => {
     let navigate = useNavigate();
 
     return (
-        <div className='border border-y-0 border-l-0 border-slate-800 w-[5rem]'>
+        <div className='border border-y-0 border-l-0 border-zinc-800 w-[5rem]'>
             <ul className="flex flex-col items-center py-2 space-y-5">
                 {navigates.map((item, index) => (
                     <li
