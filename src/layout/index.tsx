@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 const Layout: React.FC = () => {
     return (
-        <div className='flex h-[100vh] bg-[#111]'>
+        <div className='flex h-[100vh] bg-[#030C1B]'>
             <SideBar />
             <div className="w-full">
                 <Header />
