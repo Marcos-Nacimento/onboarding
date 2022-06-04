@@ -1,15 +1,13 @@
 import React from "react";
-import SideBarSmall from "../components/sideBarSmall";
-import Order from "../components/order";
+import SideBar from "../components/sideBar";
 import Header from "../components/header";
 
 import { Outlet } from "react-router-dom";
 
 const Layout: React.FC = () => {
     return (
-        <div className='flex h-[100vh] bg-slate-900'>
-            <SideBarSmall />
-            <Order />
+        <div className='flex h-[100vh] bg-[#030C1B]'>
+            <SideBar />
             <div className="w-full">
                 <Header />
                 <Outlet />
