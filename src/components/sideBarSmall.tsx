@@ -11,7 +11,7 @@ const SideBarSmall: React.FC = () => {
             <ul className="flex flex-col items-center py-2 space-y-5">
                 {navigates.map((item, index) => (
                     <li
-                        className="delay-80 bg-slate-300 h-10 w-10 rounded-full cursor-pointer hover:rounded-md hover:bg-green-400"
+                        className="delay-80 bg-slate-300 h-8 w-8 rounded-full cursor-pointer hover:rounded-md hover:bg-green-400"
                         key={index}
                         onClick={() => navigate(item.navigate)}
                     >
